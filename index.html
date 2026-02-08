@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Barrera Torres by Monserrate LLC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Barrera Torres by Monserrate LLC is a digital marketing services firm focused on strategy, execution, and sustainable growth."/>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6f8f7;
+      color: #1e2b28;
+    }
+    header {
+      background: #0f1f1c;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 20px;
+      color: #cfe5dd;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 30px;
+      background: #7fd1b2;
+      color: #0f1f1c;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+    section {
+      margin-bottom: 90px;
+    }
+    h2 {
+      font-size: 34px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #3a4d48;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    .image {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 30px;
+    }
+    form {
+      max-width: 600px;
+      margin-top: 40px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    footer {
+      background: #0f1f1c;
+      color: #cfe5dd;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Barrera Torres</h1>
+  <p>by Monserrate LLC</p>
+  <p>Digital Marketing Services Built for Sustainable Growth</p>
+  <a href="#contact" class="btn">Contact Us</a>
+</header>
+
+<div class="container">
+
+  <section>
+    <h2>Who We Are</h2>
+    <p>
+      Barrera Torres by Monserrate LLC is a digital marketing services firm focused on helping businesses grow through
+      clear strategy, structured execution, and measurable results.
+    </p>
+    <img class="image" src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80">
+  </section>
+
+  <section>
+    <h2>What We Do</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Marketing Strategy</h3>
+        <p>Clear strategies aligned with business goals.</p>
+      </div>
+      <div class="card">
+        <h3>Paid Advertising</h3>
+        <p>Performance-driven digital campaigns.</p>
+      </div>
+      <div class="card">
+        <h3>Brand Positioning</h3>
+        <p>Professional and consistent brand presence.</p>
+      </div>
+      <div class="card">
+        <h3>Analytics & Growth</h3>
+        <p>Data-driven optimization and scaling.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Tell us about your business and how we can help.</p>
+
+    <form id="contactForm" action="https://formspree.io/f/xpqjzkqz" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="text" name="company" placeholder="Company Name">
+      <textarea name="message" placeholder="Your message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+
+    <div id="successMessage" style="display:none; margin-top:40px;">
+      <h3>We will get in touch soon</h3>
+      <p>Thank you for reaching out. Our team will contact you shortly.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © 2025 Barrera Torres by Monserrate LLC. All rights reserved.
+</footer>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const successMessage = document.getElementById('successMessage');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      form.style.display = 'none';
+      successMessage.style.display = 'block';
+    } else {
+      alert('Something went wrong. Please try again.');
+    }
+  });
+</script>
+
+</body>
+</html>
